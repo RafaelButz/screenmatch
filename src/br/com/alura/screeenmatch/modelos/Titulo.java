@@ -14,7 +14,7 @@ public class Titulo {
         System.out.println("Nome: "+ getNome());
         System.out.println("Duração: " + getDuracaoEmMinutos());
         System.out.println("Lançamento: " + getAnoDeLancamento());
-        System.out.println(String.format("Avaliação: %.1f ", avaliacoes()));
+        System.out.println(String.format("Avaliação: %.1f ", pegaMedia()));
         System.out.println("Total Avaliações: " + getTotalDeAvaliacoes());
 
     }
@@ -24,7 +24,7 @@ public class Titulo {
         totalDeAvaliacoes++;
 
     }
-    double avaliacoes(){
+    double pegaMedia(){
         return somaDasAvaliacoes / totalDeAvaliacoes;
     }
 
