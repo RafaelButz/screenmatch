@@ -1,3 +1,8 @@
+import br.com.alura.screeenmatch.modelos.Filme;
+import br.com.alura.screeenmatch.modelos.Serie;
+import br.com.alura.screeenmatch.modelos.Titulo;
+import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+
 public class Principal {
     public static void main(String[] args) {
         Filme meuFilme = new Filme();
@@ -21,7 +26,24 @@ public class Principal {
 
         meuFilme1.exibiFichaTecnica();
 
-        System.out.println("=======================================================");
-    }
+        Serie serie = new Serie();
+        serie.setNome("Lost");
+        serie.setAnoDeLancamento(2000);
+        serie.avalia(10);
+        serie.avalia(8);
+        serie.setTemporadas(10);
+        serie.setEspisodiosPorTemporada(10);
+        serie.setMinutosPorEpisodio(50);
+        serie.exibiFichaTecnica();
 
+        System.out.println("=======================================================");
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(meuFilme1);
+        calculadora.inclui(serie);
+
+        System.out.println(calculadora.getTempoTotal());
+
+    }
 }

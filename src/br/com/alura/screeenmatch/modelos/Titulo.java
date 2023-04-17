@@ -1,4 +1,6 @@
-public class Filme {
+package br.com.alura.screeenmatch.modelos;
+
+public class Titulo {
     private String nome;
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
@@ -9,7 +11,7 @@ public class Filme {
     public void exibiFichaTecnica(){
 
         System.out.println("=======================================================");
-        System.out.println("Nome do Filme: "+ getNome());
+        System.out.println("Nome: "+ getNome());
         System.out.println("Duração: " + getDuracaoEmMinutos());
         System.out.println("Lançamento: " + getAnoDeLancamento());
         System.out.println(String.format("Avaliação: %.1f ", avaliacoes()));
