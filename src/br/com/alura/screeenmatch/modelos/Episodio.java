@@ -1,5 +1,6 @@
 package br.com.alura.screeenmatch.modelos;
 
+
 import br.com.alura.screenmatch.calculos.Classificavel;
 
 public class Episodio implements Classificavel {
@@ -41,7 +42,7 @@ public class Episodio implements Classificavel {
         this.serie = serie;
     }
 
-    @Override
+
     public int getClassificacao() {
         if (totalVisualizacoes > 100){
             return 4;

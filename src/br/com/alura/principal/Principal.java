@@ -1,21 +1,22 @@
+package br.com.alura.principal;
 import br.com.alura.screeenmatch.modelos.Episodio;
 import br.com.alura.screeenmatch.modelos.Filme;
 import br.com.alura.screeenmatch.modelos.Serie;
-import br.com.alura.screeenmatch.modelos.Titulo;
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.Classificavel;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
+
+import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
 
         FiltroRecomendacao filtro = new FiltroRecomendacao();
 
-        Filme meuFilme = new Filme();
+        Filme meuFilme = new Filme("Matrix", 1999);
 
-        meuFilme.setNome("Matrix");
+
         meuFilme.setDuracaoEmMinutos(118);
-        meuFilme.setAnoDeLancamento(1999);
         meuFilme.avalia(8);
         meuFilme.avalia(10);
         meuFilme.avalia(7);
@@ -23,9 +24,7 @@ public class Principal {
         meuFilme.exibiFichaTecnica();
         filtro.filtra(meuFilme);
 
-        Filme meuFilme1 = new Filme();
-        meuFilme1.setNome("O Poderoso Chefão");
-        meuFilme1.setDuracaoEmMinutos(197);
+        Filme meuFilme1 = new Filme("O Poderoso Chefão", 1980);
         meuFilme1.setAnoDeLancamento(1980);
         meuFilme1.avalia(1);
         meuFilme1.avalia(1);
@@ -33,11 +32,9 @@ public class Principal {
 
         meuFilme1.exibiFichaTecnica();
         System.out.println("Avaliacão: "+meuFilme1.getClassificacao());
-        filtro.filtra(meuFilme1);
+        filtro.filtra((Classificavel) meuFilme1);
 
-        Serie serie = new Serie();
-        serie.setNome("Lost");
-        serie.setAnoDeLancamento(2000);
+        Serie serie = new Serie("Lost", 2000);
         serie.avalia(10);
         serie.avalia(9.9);
         serie.setTemporadas(10);
@@ -64,6 +61,23 @@ public class Principal {
         episodio.setTotalVisualizacoes(1);
 
         filtro.filtra(episodio);
+
+
+        var filmeRafa = new Filme("DogVille", 2003);
+
+        filmeRafa.setAnoDeLancamento(2003);
+        filmeRafa.setDuracaoEmMinutos(200);
+        filmeRafa.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeRafa);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(meuFilme1);
+
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Tamanho da lista: " + listaDeFilmes.get(0).getClassificacao());
+        System.out.println(listaDeFilmes);
+
 
 
 

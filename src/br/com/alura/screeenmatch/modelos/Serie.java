@@ -9,6 +9,12 @@ public class Serie extends Titulo implements Classificavel {
     private int espisodiosPorTemporada;
     private int minutosPorEpisodio;
 
+    public Serie(String nome, int anoDeLancamento) {
+        super(nome, anoDeLancamento);
+    }
+
+
+
     public int getTemporadas() {
         return temporadas;
     }
@@ -50,5 +56,10 @@ public class Serie extends Titulo implements Classificavel {
     @Override
     public int getClassificacao() {
         return (int)pegaMedia()/2;
+    }
+
+    @Override
+    public String toString() {
+        return "br.com.alura.screeenmatch.modelos.Serie: " + this.getNome() + "(" + this.getAnoDeLancamento() + ")";
     }
 }

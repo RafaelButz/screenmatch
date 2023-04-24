@@ -1,8 +1,7 @@
 package br.com.alura.screenmatch.calculos;
 
-import br.com.alura.screeenmatch.modelos.Titulo;
+public class FiltroRecomendacao {
 
-public class FiltroRecomendacao extends Titulo {
 
 
     public void filtra(Classificavel classificavel){
