@@ -28,7 +28,7 @@ public class PrincipalComLista {
 
         System.out.println(lista);
 
-//        for (br.com.alura.screeenmatch.modelos.Titulo item: lista) {
+//        for (Titulo item: lista) {
 //            System.out.println(item.getNome());
 //            br.com.alura.screeenmatch.modelos.Filme filme = (br.com.alura.screeenmatch.modelos.Filme) item;
 //            System.out.println("Classificação: " + ((br.com.alura.screeenmatch.modelos.Filme) item).getClassificacao());
