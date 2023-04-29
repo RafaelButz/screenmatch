@@ -5,8 +5,8 @@ import br.com.alura.screeenmatch.modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
@@ -29,19 +29,21 @@ public class PrincipalComBusca {
 
         while (!busca.equalsIgnoreCase("Parar")) {
 
+            System.out.println("Digite um filme para busca: ");
+            busca = leitura.nextLine();
+
             if (busca.equalsIgnoreCase("Parar")){
                 break;
             }
 
-            System.out.println("Digite um filme para busca: ");
-            busca = leitura.nextLine();
-            busca = busca.replaceAll(" ", "");
+            busca = busca.replaceAll(" ", "+");
 
             try {
 
                 String endereco = "http://www.omdbapi.com/?t=" + busca + "&apikey=7eaa794a";
 
-                System.out.println(endereco);
+
+                        System.out.println(endereco);
 
                 HttpClient client = HttpClient.newHttpClient();
                 HttpRequest request = HttpRequest.newBuilder()
@@ -81,18 +83,19 @@ public class PrincipalComBusca {
                 System.out.println("Erro no argumento de busca");
             } catch (ErroDeConversaoDeAnoException e) {
                 System.out.println(e.getMensagem());
+            } catch (NullPointerException e){
+                System.out.println("Filme não localizado");
+                continue;
             }
         }
         System.out.println("Programa finalizou corretamente");
 
         FileWriter escrita = new FileWriter("Filmes.json");
-
         escrita.write(gson.toJson(listaTitulo));
-
         escrita.close();
 
         FileWriter escrita2 = new FileWriter("Filmes.txt");
-        escrita2.write(listaTitulo.toString());
+        escrita2.append(listaTitulo.toString());
         escrita2.close();
 
         System.out.println(listaTitulo);
